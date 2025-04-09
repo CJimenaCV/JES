@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JES: UTube</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      div {
+        align-items: center;
+      }
+      pre {
+        font-family: monospace;
+        font-size: 1.5vw;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+    </style>
+</head>
+<body>
+  <header>
+    <div >
+      <a href="index.html" id="Encabezado">
+        <h1>JES:</h1>
+        <h2>Jimmy Entertainment System</h2>
+      </a>
+    </div>
+      <hr class="hr-guiones">
+      <nav>
+        <ul>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#videojuegos">Videojuegos</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="#libros">Libros</a></li>
+          <li><a href="#musica">Música</a></li>
+        </ul>
+      </nav>
+  </header>
+  <main>
+      <div id="reproductor">
+        <pre id="YTBoton"><code style="color: #E50000;">
+  ⢀⣀⣠⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣄⣀⡀⠀⠀
+ ⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀
+ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀
+⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠈⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⢈⣹⣿⣿⣿⣿⣿⣿⣿⡇
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⢀⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
+⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇
+ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀
+ ⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀
+  ⠈⠉⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠉⠁⠀⠀
+  
+        </code></pre>
+        <iframe id="fullscreenPlayer"
+          frameborder="0" allow="autoplay; fullscreen"
+          allowfullscreen style="display: none;">
+        </iframe>
+        
+      </div>
+      <ul id="canales"></ul>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
