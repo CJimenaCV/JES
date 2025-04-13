@@ -1,0 +1,40 @@
+const canales = [
+    {
+        "nombre": "Hackaday",
+        "url": "https://hackaday.com/blog/feed/"
+    },
+    {
+        "nombre": "Not A Blog: GRR Martin",
+        "url": "https://georgerrmartin.com/notablog/feed/"
+    }
+];
+
+const container = document.getElementById("canales");
+
+canales.forEach(canal => {
+    const feedUrl = canal.url;
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const canalDiv = document.createElement("li");
+            canalDiv.innerHTML = `<h2>${canal.nombre}</h2><ul></ul>`;
+            const listaVideos = canalDiv.querySelector("ul");
+
+            data.items.slice(0, 5).forEach(item => {
+                const fecha = new Date(item.pubDate);
+                const fechaTexto = fecha.toLocaleDateString("es-ES");
+                const videoLink = document.createElement("li");
+                const a = document.createElement("a");
+
+                a.href = item.link;
+                a.textContent = `${fechaTexto} - ${item.title}`;
+
+                videoLink.appendChild(a);
+                listaVideos.appendChild(videoLink);
+            });
+
+            container.appendChild(canalDiv);
+        });
+});
