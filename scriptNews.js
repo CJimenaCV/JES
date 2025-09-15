@@ -6,6 +6,10 @@ const canales = [
     {
         "nombre": "Not A Blog: GRR Martin",
         "url": "https://georgerrmartin.com/notablog/feed/"
+    },
+    {
+        "nombre": "El Almendrón",
+        "url": "https://www.almendron.com/tribuna/feed/"
     }
 ];
 
@@ -22,7 +26,7 @@ canales.forEach(canal => {
             canalDiv.innerHTML = `<h2>${canal.nombre}</h2><ul></ul>`;
             const listaVideos = canalDiv.querySelector("ul");
 
-            data.items.slice(0, 5).forEach(item => {
+            data.items.slice(0, 10).forEach(item => {
                 const fecha = new Date(item.pubDate);
                 const fechaTexto = fecha.toLocaleDateString("es-ES");
                 const videoLink = document.createElement("li");
