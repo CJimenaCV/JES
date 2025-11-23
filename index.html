@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JES</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon"/>
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <style>
+    div {
+      text-align: center;
+      display: flex;
+    }
+
+    pre {
+      font-family: monospace;
+      font-size: 1.5vh;
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 0;
+      white-space: pre;
+    }
+    @media screen and (max-width: 600px) {
+      pre {
+        font-size: 2vw;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header id="main-header">
+        <h1><a href="#" data-page="index">JES:<br>Jimmy Entertainment System<br></a></h1>
+        <hr class="hr-guiones">
+        <nav>
+          <ul>
+            <li><a href="#" data-page="news">News</a></li>
+            <li><a href="#" data-page="youtube">YouTube</a></li>
+            <li><a href="#" data-page="tv">TV</a></li>
+            <li><a href="#" data-page="games">Games</a></li>
+            <li><a href="#" data-page="books">Books</a></li>
+            <li><a href="#" data-page="photos">Photos</a></li>
+            <li><a href="#" data-page="music">Music</a></li>
+          </ul>
+        </nav>
+    </header>
+    <main>
+      <section id="page-index" class="page active">
+        <iframe src="views/inicio.html" class="dynamic-frame" frameborder="0"></iframe>
+      </section>
+      <section id="page-news" class="page">
+        <iframe src="views/noticias.html" class="dynamic-frame" frameborder="0"></iframe>
+      </section>
+      <section id="page-youtube" class="page">
+        <iframe src="views/youtube.html" class="dynamic-frame" frameborder="0"></iframe>
+      </section>
+
+      <section id="page-tv" class="page">TV</section>
+      <section id="page-games" class="page">Juegos</section>
+      <section id="page-books" class="page">Libros</section>
+      <section id="page-photos" class="page">Fotos</section>
+      <section id="page-music" class="page">Música</section>
+    </main>
+
+
+</body>
+<script src="app.js"></script>
+<script>
+  const header = document.getElementById("main-header");
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js")
+      .then(() => console.log("Service Worker registrado ✨"))
+      .catch(err => console.log("Error al registrar SW:", err));
+  }
+
+window.addEventListener('message', (event) => {
+  const data = event.data;
+  if (!data || data.type !== 'resize-iframe') return;
+
+  const activePage = document.querySelector('.page.active');
+  if (!activePage) return;
+
+  const iframe = activePage.querySelector('.dynamic-frame');
+  if (!iframe) return;
+
+  iframe.style.height = data.height + 'px';
+});
+
+
+
+</script>
+
+</html>

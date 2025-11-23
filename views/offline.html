@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sin conexión</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+      div {
+        text-align: center;
+        display: flex;
+      }
+
+      pre {
+        font-family: monospace;
+        font-size: 1.5vh;
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 0;
+        white-space: pre;
+      }
+      @media screen and (max-width: 600px) {
+        pre {
+          font-size: 2vw;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <main style="text-align: center;">
+      <h1>Estás offline</h1>
+      <p>No hay conexión a Internet en este momento.</p>
+      <a href="index.html">Hola</a>
+    </main>
+  </body>
+  <script>
+
+
+    function sendHeight() {
+        const height = document.documentElement.scrollHeight;
+        parent.postMessage(
+            { type: 'resize-iframe', height },
+            '*' // puedes poner origen concreto luego por seguridad
+        );
+    }
+
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+
+    // Opcional: si el contenido cambia mucho dinámicamente
+    const observer = new MutationObserver(sendHeight);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+
+  </script>
+</html>

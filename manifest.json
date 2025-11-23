@@ -1,0 +1,50 @@
+{
+    "name": "Jimmys Entertainment System",
+    "short_name": "JES",
+    "description": "Jimmys Entertainment System Web",
+    "icons": [
+        {
+            "src": "assets/icons/16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        },
+        {
+            "src": "assets/icons/32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "assets/icons/128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "assets/icons/256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "assets/icons/512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "assets/icons/1024.png",
+            "type": "image/png",
+            "sizes": "1024x1024"
+        },
+        {
+            "src": "assets/icons/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "_comment": "Prueba a cambiarlo por fullscreen",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "edge_side_panel": {
+        "preferred_width": 800
+    }
+}

@@ -1,0 +1,191 @@
+
+
+:root { 
+  --color-verde: #00FF00;
+  --color-azul: #00ffff;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #000000;
+  color: var(--color-verde);
+  font-family: monospace;
+  margin: 1.5em;    
+}
+
+#Encabezado {
+  display: block;
+}
+
+h1 {
+  font-size: xx-large;
+  margin-bottom: 0.5em;
+}
+
+header {
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+p {
+  color: var(--color-verde);
+}
+
+.hr-guiones {
+  border: none;
+  height: 3px;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-verde) 0,
+    var(--color-verde) 20px,
+    transparent 20px,
+    transparent 25px
+  );
+  margin-bottom: 1em;
+}
+
+a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+  font-size: large;
+}
+
+nav ul li:not(:last-child)::after {
+  content: "|";
+  color: var(--color-verde);
+  margin-left: 0.5em;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--color-verde);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+nav ul li a.active {
+  color: var(--color-azul);
+}
+
+header a {
+  color: var(--color-verde);
+  text-decoration: none;
+}
+
+header a:hover {
+  color: var(--color-azul);
+  text-decoration: none;
+}
+
+#reproductor {
+  height: auto;
+  width: 80vw;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  background-color: #111;
+}
+
+#fullscreenPlayer {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  background-color: #111;
+  
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 1em;
+    font-size: 14px;
+  }
+  #Encabezado {
+    display: inline;
+  }
+  h1 {
+    font-size: x-large;
+  }
+  nav ul li{
+    font-size: small;
+  }
+ 
+  #reproductor {
+    max-width: 100%;
+  }
+}
+
+h2 {
+  margin-bottom: 0.3em;
+}
+#canales {
+  list-style: none;
+  padding: 0;
+  margin-top: 2em;
+}
+
+#canales > li {
+  margin-bottom: 1.5em;
+}
+
+#canales li ul li a {
+  display: inline-block;
+  max-width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle; /* o top si queda mejor */
+}
+
+#canales li ul {
+  list-style: "- ";
+  padding-left: 1.5em;
+}
+
+
+
+
+/* Todas las "páginas" ocultas por defecto */
+.page {
+  display: none;
+}
+
+/* Solo la página activa se muestra */
+.page.active {
+  display: block;
+}
+
+.dynamic-frame {
+  width: 100%;        /* ancho completo */
+  border: none;       /* sin marco */
+  display: block;     /* evita espacio en línea extra */
+
+}
+
