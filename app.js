@@ -1,20 +1,26 @@
 // Navegación entre "páginas"
 const links = document.querySelectorAll('nav a, h1 a');
 const pages = document.querySelectorAll('.page');
+var online = true
 
-console.log("HOLA MUNDO")
 links.forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault(); // evita recarga
     const target = link.dataset.page;
-    console.log("HOLA MUNDO2")
+
     // Cambia sección visible
     pages.forEach(p => p.classList.remove('active'));
     document.getElementById(`page-${target}`).classList.add('active');
-console.log("HOLA MUNDO3")
+
     // Marca la sección activa visualmente
     links.forEach(l => l.classList.remove('active'));
     link.classList.add('active');
+
+    //ESTO ES MUY CUTRE Y HAY QUE CAMBIARLO
+    if ((target == "youtube" || target == "news") && online == false) {
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(`page-no-online`).classList.add('active');
+    }
   });
 });
 
@@ -29,6 +35,15 @@ window.addEventListener('message', (event) => {
   iframe.style.height = data.height + 'px';
 });
 
+window.addEventListener("online", () => {
+  console.log("Volvió la conexión");
+  online = true
+});
+
+window.addEventListener("offline", () => {
+  console.log("Se perdió la conexión");
+  online = false
+});
 
 
 /*
